@@ -24,7 +24,7 @@ export class Console extends Jogos {
 
     public visualizar(){
         super.visualizar();
-        console.log(`Génerico: ${this._plataforma}`);
+        console.log(`Plataforma: ${this._plataforma}`);
         
     }
 }

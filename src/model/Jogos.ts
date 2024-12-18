@@ -63,10 +63,10 @@ export abstract class Jogos{
         console.log("*********************************************************************")
         console.log("Dados do Jogo");
         console.log("*********************************************************************")
-        console.log(`Número do ID: ${this._idJogo}`)
-        console.log(`Nome do Produto: ${this._nomeJogo}`)
-        console.log(`Tipo do Produto: ${this._tipoJogo}`)
-        console.log(`Preço do Produto: ${this._precoJogo}`)
+        console.log(`ID do Jogo: ${this._idJogo}`)
+        console.log(`Título do Jogo: ${this._nomeJogo}`)
+        console.log(`Tipo do Jogo: ${this._tipoJogo}`)
+        console.log(`Preço do Jogo: ${this._precoJogo}`)
     
 
         }

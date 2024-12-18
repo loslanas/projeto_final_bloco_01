@@ -1,8 +1,9 @@
-import { Cosmetico } from "./model/Cosmetico";
-import { Medicamento } from "./model/Medicamento";
-import { ProdutoController } from "./controller/ProdutoController";
+
 
 import readlinesync = require("readline-sync");
+import { JogosController } from "./src/controller/JogosController";
+import { Pc } from "./src/model/Pc";
+import { Console } from "./src/model/Console";
 
 export function main(){
 
@@ -11,7 +12,7 @@ export function main(){
     const tipo = ["Console", "PC"];
 
     //Criano um objeto da classe contacontroller
-    //const produto = new ProdutoController();
+    const jogo = new JogosController();
 
 
 
@@ -23,7 +24,7 @@ while(true){
     console.log("                                                    ");
     console.log("****************************************************");
     console.log("                                                    ");
-    console.log("            1 - Criar cadastro de Jogo              ");
+    console.log("            1 - Cadastrar Jogo                      ");
     console.log("            2 - Listar todos os Jogos               ");
     console.log("            3 - Buscar Jogo por ID                  ");
     console.log("            4 - Atualizar cadastro de Jogo          ");
@@ -62,14 +63,14 @@ while(true){
                     console.log("\nDigite a Plaforma desse Jogo: ");
                     plataforma = readlinesync.question('');
                     
-                    //produto.criarProduto(new Medicamento(produto.gerarId(),  nomeJogo,tipoJogo, precoJogo, plataforma));
+                    jogo.criarProduto(new Console(jogo.gerarId(),  nomeJogo,tipoJogo, precoJogo, plataforma));
                 break;
 
                 case 2:
                     console.log("\nJOGO DE PC ");
                     console.log("\nDigite o código serial do Jogo: ");
                     codigoSerial = readlinesync.question('');
-                    //produto.criarProduto(new Cosmetico(produto.gerarId(), nomeJogo, tipoJogo, precoJogo, codigoSerial));
+                    jogo.criarProduto(new Pc(jogo.gerarId(), nomeJogo, tipoJogo, precoJogo, codigoSerial));
                 break;
             }
 
@@ -77,14 +78,14 @@ while(true){
             break;
         case 2:
             console.log("\n\nListar todos os Jogos\n\n");
-            //produto.listarTodosProdutos();
+            jogo.listarTodosProdutos();
             keyPress();
             break;
         case 3:
             console.log("\n\nBuscar Jogo por ID\n\n");
             console.log("Digite o número do ID do Jogo: ");
             idJogo = readlinesync.questionInt('');
-            //produto.procurarPorId(idJogo);
+            jogo.procurarPorId(idJogo);
             keyPress();
             break;
         case 4:
@@ -93,7 +94,7 @@ while(true){
             console.log("Digite o número do ID do Jogo: ");
             idJogo = readlinesync.questionInt('');
 
-            const jogoExistente = //produto.buscarNoArray(idJogo);
+            const jogoExistente = jogo.buscarNoArray(idJogo);
             if(jogoExistente){
 
                 console.log("\nDigite o novo nome do Jogo: ");
@@ -105,11 +106,11 @@ while(true){
                 if (jogoExistente.tipoJogo === 1) {
                     console.log("Digite a nova plataforma do console: ");
                     const plataforma = readlinesync.question("");
-                    //produto.atualizar(new Medicamento(idJogo, nomeJogo,jogoExistente.tipoJogo, precoJogo, plataforma));
+                    jogo.atualizar(new Console (idJogo, nomeJogo,jogoExistente.tipoJogo, precoJogo, plataforma));
                 } else if (jogoExistente.tipoJogo === 2) {
                     console.log("Digite o novo Código Serial do Jogo: ");
-                     codigoSerial = readlinesync.question("");
-                    //produto.atualizar(new Cosmetico(idJogo, nomeJogo,jogoExistente.tipoJogo, precoJogo, codigoSerial));
+                    codigoSerial = readlinesync.question("");
+                    jogo.atualizar(new Pc(idJogo, nomeJogo,jogoExistente.tipoJogo, precoJogo, codigoSerial));
                 }
 
                
@@ -128,7 +129,7 @@ while(true){
             console.log("Digite o id do Jogo: ");
             idJogo = readlinesync.questionInt('');
 
-            //produto.deletar(idJogo);
+            jogo.deletar(idJogo);
 
             keyPress();
             break;
