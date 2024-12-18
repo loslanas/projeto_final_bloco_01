@@ -1,9 +1,9 @@
-
-
-import readlinesync = require("readline-sync");
 import { Cosmetico } from "./model/Cosmetico";
 import { Medicamento } from "./model/Medicamento";
 import { ProdutoController } from "./controller/ProdutoController";
+
+import readlinesync = require("readline-sync");
+
 export function main(){
 
     let opcao, idJogo, tipoJogo, precoJogo : number;
@@ -11,7 +11,7 @@ export function main(){
     const tipo = ["Console", "PC"];
 
     //Criano um objeto da classe contacontroller
-    const produto = new ProdutoController();
+    //const produto = new ProdutoController();
 
 
 
@@ -93,7 +93,7 @@ while(true){
             console.log("Digite o número do ID do Jogo: ");
             idJogo = readlinesync.questionInt('');
 
-            const jogoExistente = produto.buscarNoArray(idJogo);
+            const jogoExistente = //produto.buscarNoArray(idJogo);
             if(jogoExistente){
 
                 console.log("\nDigite o novo nome do Jogo: ");
